@@ -29,18 +29,19 @@ export default function CTA() {
 
             <h2 style={{ fontFamily: "Orbitron, sans-serif", fontWeight: 900, fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "#fff", lineHeight: 1.15, marginBottom: "1.5rem" }}>
               READY TO GO{" "}
-              <span style={{ background: "linear-gradient(135deg, #00D4FF, #00FF87)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+              <span className="heading-shimmer" style={{ fontFamily: "Orbitron, sans-serif", fontWeight: 900, fontSize: "inherit" }}>
                 GREEN?
               </span>
             </h2>
 
-            <p className="mb-10 max-w-xl mx-auto" style={{ fontFamily: "Space Grotesk, sans-serif", fontSize: "1.05rem", color: "rgba(168,178,196,0.75)", lineHeight: 1.7 }}>
-              Join 50+ forward-thinking brands already reducing their carbon footprint with AgriPack. 
-              Get your first order in 72 hours.
+            <p className="mb-10 max-w-xl mx-auto lead-text">
+              Join <span className="hi-gold">50+ forward-thinking brands</span> already{" "}
+              <span className="hi-green">reducing their carbon footprint</span> with AgriPack.{" "}
+              Get your first order in <span className="hi-cyan">72 hours</span>.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="#contact" className="btn-solid">
+              <a href="#contact" className="btn-solid btn-pulse relative">
                 <Zap className="w-4 h-4" />
                 Start Now — Free Demo
                 <ArrowRight className="w-4 h-4" />
@@ -51,7 +52,9 @@ export default function CTA() {
             </div>
 
             <p className="mt-8" style={{ fontFamily: "Space Grotesk, sans-serif", fontSize: "0.8rem", color: "rgba(168,178,196,0.4)" }}>
-              No commitment required · Setup in 48 hours · Cancel anytime
+              <span className="hi-green" style={{ fontSize: "inherit" }}>✓</span> No commitment required{" "}
+              · <span className="hi-cyan" style={{ fontSize: "inherit" }}>⚡</span> Setup in 48 hours{" "}
+              · Cancel anytime
             </p>
           </div>
         </motion.div>

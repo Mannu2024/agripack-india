@@ -8,7 +8,9 @@ const testimonials = [
     title: "Head of Supply Chain",
     company: "FreshBox Foods",
     avatar: "https://picsum.photos/seed/testimonial1/80/80",
-    quote: "AgriPack cut our packaging carbon footprint by 60% and we're actually saving 20% on costs. The quality is exceptional — our customers love it.",
+    quote: (
+      <>AgriPack cut our packaging carbon footprint by <span className="hi-green">60%</span> and we're actually saving <span className="hi-gold">20% on costs</span>. The quality is <span className="hi-white">exceptional</span> — our customers love it.</>
+    ),
     stars: 5,
     color: "#00D4FF",
   },
@@ -17,7 +19,9 @@ const testimonials = [
     title: "Co-founder",
     company: "GreenKart Ecommerce",
     avatar: "https://picsum.photos/seed/testimonial2/80/80",
-    quote: "We switched 100% to AgriPack for our e-commerce mailers. The compostable packaging has become a brand differentiator for us with conscious consumers.",
+    quote: (
+      <>We switched <span className="hi-green">100%</span> to AgriPack for our e-commerce mailers. The <span className="hi-cyan">compostable packaging</span> has become a <span className="hi-white">brand differentiator</span> for us with conscious consumers.</>
+    ),
     stars: 5,
     color: "#00FF87",
   },
@@ -26,7 +30,9 @@ const testimonials = [
     title: "Operations Director",
     company: "Punjab Agro Industries",
     avatar: "https://picsum.photos/seed/testimonial3/80/80",
-    quote: "As a farmer cooperative, we're not just customers — we're raw material partners. AgriPack has given our members an additional income stream.",
+    quote: (
+      <>As a farmer cooperative, we're not just customers — we're <span className="hi-gold">raw material partners</span>. AgriPack has given our members an <span className="hi-green">additional income stream</span>.</>
+    ),
     stars: 5,
     color: "#BF00FF",
   },
@@ -35,7 +41,9 @@ const testimonials = [
     title: "Sustainability Lead",
     company: "MegaMart Retail",
     avatar: "https://picsum.photos/seed/testimonial4/80/80",
-    quote: "Meeting our ESG targets was hard until AgriPack. Their supply chain transparency and carbon tracking dashboard is best-in-class.",
+    quote: (
+      <>Meeting our <span className="hi-cyan">ESG targets</span> was hard until AgriPack. Their <span className="hi-white">supply chain transparency</span> and <span className="hi-gold">carbon tracking dashboard</span> is best-in-class.</>
+    ),
     stars: 5,
     color: "#FFD700",
   },
@@ -87,7 +95,9 @@ export default function Testimonials() {
             </div>
 
             <p className="mb-8" style={{ fontFamily: "Space Grotesk, sans-serif", fontSize: "1.1rem", color: "rgba(255,255,255,0.85)", lineHeight: 1.75, fontStyle: "italic" }}>
-              "{t.quote}"
+              <span style={{ color: t.color, fontSize: "1.4em", lineHeight: 0, verticalAlign: "-0.2em", marginRight: "0.1em" }}>"</span>
+              {t.quote}
+              <span style={{ color: t.color, fontSize: "1.4em", lineHeight: 0, verticalAlign: "-0.2em", marginLeft: "0.1em" }}>"</span>
             </p>
 
             <div className="flex items-center justify-center gap-4">

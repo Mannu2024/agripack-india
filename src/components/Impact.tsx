@@ -1,3 +1,4 @@
+import React from "react";
 import { motion, useInView } from "motion/react";
 import { useRef, useEffect, useState } from "react";
 
@@ -22,17 +23,17 @@ type Metric = {
   value: number;
   suffix: string;
   color: string;
-  desc: string;
+  desc: React.ReactNode;
   format?: (v: number) => string;
 };
 
 const metrics: Metric[] = [
-  { label: "Tonnes CO2 Saved", value: 1200, suffix: "T", color: "#00FF87", desc: "Carbon emissions prevented annually through our circular model" },
-  { label: "Farmers Empowered", value: 2400, suffix: "+", color: "#00D4FF", desc: "Agricultural households earning additional income from waste" },
-  { label: "Plastic Units Replaced", value: 8500000, suffix: "", format: (v: number) => `${(v / 1000000).toFixed(1)}M`, color: "#BF00FF", desc: "Single-use plastic packaging units replaced with bio alternatives" },
-  { label: "B2B Clients", value: 50, suffix: "+", color: "#FFD700", desc: "Businesses across India now packaging sustainably" },
-  { label: "States Covered", value: 12, suffix: "", color: "#FF006E", desc: "Indian states in our active distribution network" },
-  { label: "Compost Rate", value: 100, suffix: "%", color: "#00FF87", desc: "Of our products fully compost within 90 days" },
+  { label: "Tonnes CO2 Saved", value: 1200, suffix: "T", color: "#00FF87", desc: <><span className="hi-green">Carbon emissions</span> prevented annually through our circular model</> },
+  { label: "Farmers Empowered", value: 2400, suffix: "+", color: "#00D4FF", desc: <>Agricultural households earning <span className="hi-gold">additional income</span> from waste</> },
+  { label: "Plastic Units Replaced", value: 8500000, suffix: "", format: (v: number) => `${(v / 1000000).toFixed(1)}M`, color: "#BF00FF", desc: <><span className="hi-pink">Single-use plastic</span> packaging units replaced with <span className="hi-green">bio alternatives</span></> },
+  { label: "B2B Clients", value: 50, suffix: "+", color: "#FFD700", desc: <>Businesses across India now <span className="hi-green">packaging sustainably</span></> },
+  { label: "States Covered", value: 12, suffix: "", color: "#FF006E", desc: <>Indian states in our <span className="hi-cyan">active distribution network</span></> },
+  { label: "Compost Rate", value: 100, suffix: "%", color: "#00FF87", desc: <>Of our products <span className="hi-green">fully compost</span> within <span className="hi-gold">90 days</span></> },
 ];
 
 function StatCard({ metric, index }: { metric: Metric; index: number }) {
@@ -78,8 +79,9 @@ export default function Impact() {
               IMPACT
             </span>
           </h2>
-          <p className="mt-4 max-w-xl mx-auto" style={{ fontFamily: "Space Grotesk, sans-serif", fontSize: "1rem", color: "rgba(168,178,196,0.7)", lineHeight: 1.7 }}>
-            Our numbers tell the story of a sustainable revolution taking root across India.
+          <p className="mt-4 max-w-xl mx-auto lead-text">
+            Our numbers tell the story of a <span className="hi-green">sustainable revolution</span>{" "}
+            taking root across <span className="hi-gold">India</span>.
           </p>
         </motion.div>
 

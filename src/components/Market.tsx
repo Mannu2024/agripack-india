@@ -8,9 +8,9 @@ const segments = [
 ];
 
 const drivers = [
-  { icon: <TrendingUp className="w-5 h-5" />, title: "28% CAGR", desc: "Sustainable packaging market growth rate in India (2024-2030)" },
-  { icon: <Globe className="w-5 h-5" />, title: "EPR Mandate", desc: "Govt. regulations forcing all producers to adopt sustainable packaging" },
-  { icon: <Target className="w-5 h-5" />, title: "ESG Pressure", desc: "82% of India's top 500 companies have set sustainability targets" },
+  { icon: <TrendingUp className="w-5 h-5" />, title: "28% CAGR", desc: <><span className="hi-green">Sustainable packaging</span> market growth rate in India (<span className="hi-gold">2024–2030</span>)</> },
+  { icon: <Globe className="w-5 h-5" />, title: "EPR Mandate", desc: <>Govt. <span className="hi-pink">regulations</span> forcing all producers to adopt <span className="hi-green">sustainable packaging</span></> },
+  { icon: <Target className="w-5 h-5" />, title: "ESG Pressure", desc: <><span className="hi-gold">82%</span> of India's top 500 companies have set <span className="hi-cyan">sustainability targets</span></> },
 ];
 
 export default function Market() {

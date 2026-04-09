@@ -113,27 +113,32 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="mb-6"
+              className="mb-6 h2-hover"
               style={{ fontFamily: "Orbitron, sans-serif", fontWeight: 900, fontSize: "clamp(2.2rem, 5vw, 4rem)", lineHeight: 1.1, color: "#fff", letterSpacing: "-0.02em" }}
             >
               TURNING{" "}
               <span style={{ background: "linear-gradient(135deg, #00D4FF, #00FF87)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                 FARM WASTE
               </span>
-              <br />INTO{" "}
-              <span style={{ color: "#00FF87", textShadow: "0 0 30px rgba(0,255,135,0.5)" }}>SUSTAINABLE</span>
-              <br />PACKAGING
+              <br />
+              <span style={{ color: "rgba(255,255,255,0.55)" }}>INTO</span>{" "}
+              <span style={{ color: "#00FF87", textShadow: "0 0 30px rgba(0,255,135,0.55)" }}>SUSTAINABLE</span>
+              <br />
+              <span className="heading-shimmer">PACKAGING</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="mb-10 max-w-lg"
-              style={{ fontFamily: "Space Grotesk, sans-serif", fontSize: "1.1rem", color: "rgba(168, 178, 196, 0.85)", lineHeight: 1.7 }}
+              className="mb-10 max-w-lg lead-text"
             >
-              India's B2B platform for eco-friendly packaging made from agricultural waste.
-              We empower farmers, reduce landfill, and help brands go green.
+              India's <span className="hi-cyan">B2B platform</span> for{" "}
+              <span className="hi-green">eco-friendly packaging</span> made from{" "}
+              <span className="hi-gold">agricultural waste</span>.{" "}
+              We <span className="hi-white">empower farmers</span>, reduce{" "}
+              <span className="hi-pink">landfill</span>, and help brands{" "}
+              <span className="hi-green">go green</span>.
             </motion.p>
 
             <motion.div
@@ -142,7 +147,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="flex flex-col sm:flex-row gap-4 mb-12"
             >
-              <a href="#contact" className="btn-solid">
+              <a href="#contact" className="btn-solid btn-pulse relative">
                 <Zap className="w-4 h-4" />
                 Request a Demo
                 <ArrowRight className="w-4 h-4" />
@@ -166,7 +171,7 @@ export default function Hero() {
                 ))}
               </div>
               <p style={{ fontFamily: "Space Grotesk, sans-serif", fontSize: "0.85rem", color: "rgba(168,178,196,0.7)" }}>
-                Trusted by <span style={{ color: "#00FF87", fontWeight: 700 }}>50+</span> B2B brands across Punjab
+                Trusted by <span className="hi-green">50+</span> B2B brands across Punjab
               </p>
             </motion.div>
           </div>

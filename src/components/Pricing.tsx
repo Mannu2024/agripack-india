@@ -6,14 +6,14 @@ const plans = [
     name: "Starter",
     price: "₹12,000",
     period: "/month",
-    desc: "For small businesses making the switch to sustainable packaging.",
+    desc: <>For <span className="hi-white">small businesses</span> making the switch to sustainable packaging.</>,
     color: "#00D4FF",
     features: [
-      "Up to 5,000 units/month",
-      "3 product types",
-      "Standard delivery (5-7 days)",
-      "FSSAI certified products",
-      "Email support",
+      <><span className="hi-cyan">Up to 5,000</span> units/month</>,
+      <><span className="hi-white">3</span> product types</>,
+      <>Standard delivery (<span className="hi-gold">5–7 days</span>)</>,
+      <><span className="hi-white">FSSAI certified</span> products</>,
+      <>Email support</>,
     ],
     cta: "Get Started",
     featured: false,
@@ -22,15 +22,15 @@ const plans = [
     name: "Growth",
     price: "₹45,000",
     period: "/month",
-    desc: "For scaling brands that need consistent supply and custom branding.",
+    desc: <>For <span className="hi-green">scaling brands</span> that need consistent supply and <span className="hi-white">custom branding</span>.</>,
     color: "#00FF87",
     features: [
-      "Up to 50,000 units/month",
-      "All product types",
-      "Express delivery (2-3 days)",
-      "Custom branding included",
-      "Dedicated account manager",
-      "Carbon impact report",
+      <><span className="hi-green">Up to 50,000</span> units/month</>,
+      <><span className="hi-white">All</span> product types</>,
+      <>Express delivery (<span className="hi-gold">2–3 days</span>)</>,
+      <><span className="hi-white">Custom branding</span> included</>,
+      <><span className="hi-cyan">Dedicated</span> account manager</>,
+      <><span className="hi-green">Carbon impact</span> report</>,
     ],
     cta: "Most Popular",
     featured: true,
@@ -39,16 +39,16 @@ const plans = [
     name: "Enterprise",
     price: "Custom",
     period: "",
-    desc: "For large manufacturers with complex, high-volume requirements.",
+    desc: <>For large manufacturers with <span className="hi-purple">complex, high-volume</span> requirements.</>,
     color: "#BF00FF",
     features: [
-      "Unlimited volume",
-      "Full product customization",
-      "Same-day dispatch",
-      "White-label option",
-      "API integration",
-      "Priority SLA & 24/7 support",
-      "Carbon credit certificates",
+      <><span className="hi-purple">Unlimited</span> volume</>,
+      <><span className="hi-white">Full</span> product customization</>,
+      <><span className="hi-gold">Same-day</span> dispatch</>,
+      <><span className="hi-white">White-label</span> option</>,
+      <><span className="hi-cyan">API</span> integration</>,
+      <><span className="hi-purple">Priority SLA</span> &amp; 24/7 support</>,
+      <><span className="hi-green">Carbon credit</span> certificates</>,
     ],
     cta: "Contact Sales",
     featured: false,
@@ -72,8 +72,9 @@ export default function Pricing() {
               PLAN
             </span>
           </h2>
-          <p className="mt-4 max-w-xl mx-auto" style={{ fontFamily: "Space Grotesk, sans-serif", fontSize: "1rem", color: "rgba(168,178,196,0.7)", lineHeight: 1.7 }}>
-            Transparent pricing, no hidden fees. Scale up or down as your business grows.
+          <p className="mt-4 max-w-xl mx-auto lead-text">
+            <span className="hi-white">Transparent pricing</span>, no hidden fees.{" "}
+            <span className="hi-green">Scale up or down</span> as your business grows.
           </p>
         </motion.div>
 

@@ -5,7 +5,13 @@ const problems = [
   {
     icon: <AlertTriangle className="w-6 h-6" />,
     title: "Plastic Pollution Crisis",
-    desc: "India generates 3.5 million tonnes of plastic waste annually, with packaging being the #1 contributor to environmental pollution.",
+    desc: (
+      <>
+        India generates <span className="hi-pink">3.5 million tonnes</span> of plastic waste annually, with{" "}
+        <span className="hi-white">packaging</span> being the{" "}
+        <span className="hi-pink">#1 contributor</span> to environmental pollution.
+      </>
+    ),
     color: "#FF006E",
     stat: "3.5M",
     statLabel: "Tonnes/Year",
@@ -13,7 +19,14 @@ const problems = [
   {
     icon: <TrendingDown className="w-6 h-6" />,
     title: "Farmer Income Gap",
-    desc: "Agricultural residue worth ₹4,000 Cr is burned annually in Punjab alone, causing massive air pollution and wasted revenue for farmers.",
+    desc: (
+      <>
+        Agricultural residue worth{" "}
+        <span className="hi-gold">₹4,000 Cr</span> is{" "}
+        <span className="hi-pink">burned annually</span> in Punjab alone, causing{" "}
+        <span className="hi-white">massive air pollution</span> and wasted revenue for farmers.
+      </>
+    ),
     color: "#FFD700",
     stat: "₹4000Cr",
     statLabel: "Wasted/Year",
@@ -21,7 +34,13 @@ const problems = [
   {
     icon: <Globe className="w-6 h-6" />,
     title: "Sustainability Demand",
-    desc: "82% of consumers prefer eco-friendly packaging, yet only 12% of Indian businesses offer sustainable alternatives at scale.",
+    desc: (
+      <>
+        <span className="hi-gold">82%</span> of consumers prefer eco-friendly packaging, yet only{" "}
+        <span className="hi-pink">12%</span> of Indian businesses offer{" "}
+        <span className="hi-white">sustainable alternatives</span> at scale.
+      </>
+    ),
     color: "#BF00FF",
     stat: "82%",
     statLabel: "Demand Unmet",
@@ -29,7 +48,13 @@ const problems = [
   {
     icon: <Leaf className="w-6 h-6" />,
     title: "Regulatory Pressure",
-    desc: "India's single-use plastic ban and Extended Producer Responsibility (EPR) norms are pushing brands to find sustainable alternatives urgently.",
+    desc: (
+      <>
+        India's <span className="hi-pink">single-use plastic ban</span> and{" "}
+        <span className="hi-cyan">EPR norms</span> are pushing brands to find{" "}
+        <span className="hi-green">sustainable alternatives</span> urgently.
+      </>
+    ),
     color: "#00D4FF",
     stat: "2026",
     statLabel: "EPR Deadline",
@@ -58,8 +83,10 @@ export default function Problem() {
               URGENT ACTION
             </span>
           </h2>
-          <p className="mt-4 max-w-2xl mx-auto" style={{ fontFamily: "Space Grotesk, sans-serif", fontSize: "1.05rem", color: "rgba(168,178,196,0.7)", lineHeight: 1.7 }}>
-            The Indian packaging industry sits at the intersection of environmental collapse and economic opportunity. Here's what we're solving.
+          <p className="mt-4 max-w-2xl mx-auto lead-text">
+            The Indian packaging industry sits at the intersection of{" "}
+            <span className="hi-pink">environmental collapse</span> and{" "}
+            <span className="hi-gold">economic opportunity</span>. Here's what we're solving.
           </p>
         </motion.div>
 

@@ -31,8 +31,9 @@ export default function Investors() {
               INDIA'S GREEN FUTURE
             </span>
           </h2>
-          <p className="mt-4 max-w-2xl mx-auto" style={{ fontFamily: "Space Grotesk, sans-serif", fontSize: "1rem", color: "rgba(168,178,196,0.7)", lineHeight: 1.7 }}>
-            Join us in building the sustainable packaging infrastructure for India's $5 trillion economy.
+          <p className="mt-4 max-w-2xl mx-auto lead-text">
+            Join us in building the <span className="hi-green">sustainable packaging infrastructure</span> for India's{" "}
+            <span className="hi-gold">$5 trillion economy</span>.
           </p>
         </motion.div>
 

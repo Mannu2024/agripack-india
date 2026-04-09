@@ -5,22 +5,54 @@ const solutions = [
   {
     icon: <Recycle className="w-7 h-7" />,
     title: "Agricultural Waste Collection",
-    desc: "We partner with farmers across Punjab and Haryana to collect sugarcane bagasse, wheat straw, and rice husks — transforming waste into raw material.",
-    points: ["Direct farmer partnerships", "Guaranteed buyback pricing", "Zero transportation cost for farmers"],
+    desc: (
+      <>
+        We partner with farmers across <span className="hi-gold">Punjab & Haryana</span> to collect{" "}
+        <span className="hi-green">sugarcane bagasse</span>,{" "}
+        <span className="hi-green">wheat straw</span>, and{" "}
+        <span className="hi-green">rice husks</span> — transforming waste into{" "}
+        <span className="hi-white">raw material</span>.
+      </>
+    ),
+    points: [
+      <><span className="hi-white">Direct</span> farmer partnerships</>,
+      <><span className="hi-gold">Guaranteed</span> buyback pricing</>,
+      <><span className="hi-green">Zero</span> transportation cost for farmers</>,
+    ],
     color: "#00FF87",
   },
   {
     icon: <Zap className="w-7 h-7" />,
     title: "Advanced Processing Technology",
-    desc: "Our proprietary processing technology converts agricultural residue into high-quality, food-safe packaging material at competitive costs.",
-    points: ["Patented pulp processing", "FDA-grade food safety", "90% less energy than plastic"],
+    desc: (
+      <>
+        Our <span className="hi-cyan">proprietary processing technology</span> converts agricultural residue into{" "}
+        <span className="hi-white">high-quality, food-safe</span> packaging material at{" "}
+        <span className="hi-gold">competitive costs</span>.
+      </>
+    ),
+    points: [
+      <><span className="hi-cyan">Patented</span> pulp processing</>,
+      <><span className="hi-white">FDA-grade</span> food safety</>,
+      <><span className="hi-green">90% less energy</span> than plastic</>,
+    ],
     color: "#00D4FF",
   },
   {
     icon: <Shield className="w-7 h-7" />,
     title: "B2B Supply Chain Platform",
-    desc: "A digital-first platform connecting manufacturers, distributors, and brands for seamless sustainable packaging procurement at scale.",
-    points: ["Real-time inventory tracking", "Custom branding options", "Pan-India delivery network"],
+    desc: (
+      <>
+        A <span className="hi-cyan">digital-first platform</span> connecting manufacturers, distributors, and brands for{" "}
+        <span className="hi-white">seamless sustainable packaging</span> procurement at{" "}
+        <span className="hi-gold">scale</span>.
+      </>
+    ),
+    points: [
+      <><span className="hi-cyan">Real-time</span> inventory tracking</>,
+      <><span className="hi-white">Custom branding</span> options</>,
+      <><span className="hi-gold">Pan-India</span> delivery network</>,
+    ],
     color: "#BF00FF",
   },
 ];
@@ -48,8 +80,10 @@ export default function Solution() {
             </span>{" "}
             ECOSYSTEM
           </h2>
-          <p className="mt-4 max-w-2xl mx-auto" style={{ fontFamily: "Space Grotesk, sans-serif", fontSize: "1.05rem", color: "rgba(168,178,196,0.7)", lineHeight: 1.7 }}>
-            An end-to-end circular economy platform that transforms agricultural waste into premium sustainable packaging.
+          <p className="mt-4 max-w-2xl mx-auto lead-text">
+            An <span className="hi-cyan">end-to-end circular economy</span> platform that transforms{" "}
+            <span className="hi-gold">agricultural waste</span> into{" "}
+            <span className="hi-green">premium sustainable packaging</span>.
           </p>
         </motion.div>
 
@@ -82,7 +116,7 @@ export default function Solution() {
                 {sol.points.map((point, j) => (
                   <li key={j} className="flex items-center gap-3">
                     <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: sol.color }} />
-                    <span style={{ fontFamily: "Space Grotesk, sans-serif", fontSize: "0.85rem", color: "rgba(168,178,196,0.8)" }}>{point}</span>
+                    <span className="check-label">{point}</span>
                   </li>
                 ))}
               </ul>
@@ -97,7 +131,7 @@ export default function Solution() {
           transition={{ delay: 0.4 }}
           className="mt-12 text-center"
         >
-          <a href="#contact" className="btn-solid inline-flex">
+          <a href="#contact" className="btn-solid btn-pulse relative inline-flex">
             Partner With Us <ArrowRight className="w-4 h-4" />
           </a>
         </motion.div>

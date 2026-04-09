@@ -2,12 +2,12 @@ import { motion } from "motion/react";
 import { Shield, Zap, Globe, Award, Users, TrendingUp } from "lucide-react";
 
 const reasons = [
-  { icon: <Shield className="w-6 h-6" />, title: "IP Protected", desc: "Proprietary processing technology with 3 patents filed.", color: "#00D4FF" },
-  { icon: <Zap className="w-6 h-6" />, title: "Speed to Market", desc: "72-hour delivery SLA across India. Custom orders in 5 days.", color: "#00FF87" },
-  { icon: <Globe className="w-6 h-6" />, title: "Scale Ready", desc: "4 manufacturing facilities, capacity for 200 tonne/month.", color: "#BF00FF" },
-  { icon: <Award className="w-6 h-6" />, title: "Certified Quality", desc: "FDA, FSSAI, and ISO 14001 certified packaging.", color: "#FFD700" },
-  { icon: <Users className="w-6 h-6" />, title: "Farmer Network", desc: "2400+ farmer partners ensuring raw material security.", color: "#FF006E" },
-  { icon: <TrendingUp className="w-6 h-6" />, title: "Unit Economics", desc: "15–30% cheaper than conventional packaging at scale.", color: "#00D4FF" },
+  { icon: <Shield className="w-6 h-6" />, title: "IP Protected", desc: <><span className="hi-cyan">Proprietary</span> processing technology with <span className="hi-gold">3 patents</span> filed.</>, color: "#00D4FF" },
+  { icon: <Zap className="w-6 h-6" />, title: "Speed to Market", desc: <><span className="hi-green">72-hour delivery SLA</span> across India. Custom orders in <span className="hi-gold">5 days</span>.</>, color: "#00FF87" },
+  { icon: <Globe className="w-6 h-6" />, title: "Scale Ready", desc: <><span className="hi-purple">4 manufacturing</span> facilities, capacity for <span className="hi-gold">200 tonne/month</span>.</>, color: "#BF00FF" },
+  { icon: <Award className="w-6 h-6" />, title: "Certified Quality", desc: <><span className="hi-white">FDA, FSSAI</span>, and <span className="hi-cyan">ISO 14001</span> certified packaging.</>, color: "#FFD700" },
+  { icon: <Users className="w-6 h-6" />, title: "Farmer Network", desc: <><span className="hi-gold">2,400+</span> farmer partners ensuring <span className="hi-green">raw material security</span>.</>, color: "#FF006E" },
+  { icon: <TrendingUp className="w-6 h-6" />, title: "Unit Economics", desc: <><span className="hi-green">15–30% cheaper</span> than conventional packaging at scale.</>, color: "#00D4FF" },
 ];
 
 export default function WhyUs() {
@@ -27,8 +27,9 @@ export default function WhyUs() {
               AGRIPACK
             </span>
           </h2>
-          <p className="mt-4 max-w-xl mx-auto" style={{ fontFamily: "Space Grotesk, sans-serif", fontSize: "1rem", color: "rgba(168,178,196,0.7)", lineHeight: 1.7 }}>
-            We're not just a packaging company. We're a technology-enabled circular economy platform.
+          <p className="mt-4 max-w-xl mx-auto lead-text">
+            We're not just a packaging company. We're a <span className="hi-cyan">technology-enabled</span>{" "}
+            <span className="hi-green">circular economy</span> platform.
           </p>
         </motion.div>
 

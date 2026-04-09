@@ -42,8 +42,9 @@ export default function Contact() {
               GREEN JOURNEY
             </span>
           </h2>
-          <p className="mt-4 max-w-xl mx-auto" style={{ fontFamily: "Space Grotesk, sans-serif", fontSize: "1rem", color: "rgba(168,178,196,0.7)", lineHeight: 1.7 }}>
-            Request a demo, discuss your packaging needs, or explore investment opportunities.
+          <p className="mt-4 max-w-xl mx-auto lead-text">
+            Request a <span className="hi-cyan">demo</span>, discuss your <span className="hi-white">packaging needs</span>, or explore{" "}
+            <span className="hi-gold">investment opportunities</span>.
           </p>
         </motion.div>
 
@@ -74,7 +75,7 @@ export default function Contact() {
             <div className="glass rounded-xl p-6 mt-4" style={{ border: "1px solid rgba(0,255,135,0.2)" }}>
               <p style={{ fontFamily: "Orbitron, sans-serif", fontSize: "0.7rem", color: "#00FF87", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "0.5rem" }}>Response Time</p>
               <p style={{ fontFamily: "Orbitron, sans-serif", fontWeight: 900, fontSize: "2rem", color: "#00FF87" }}>{"< 24h"}</p>
-              <p style={{ fontFamily: "Space Grotesk, sans-serif", fontSize: "0.85rem", color: "rgba(168,178,196,0.6)" }}>We respond to all inquiries within one business day.</p>
+              <p style={{ fontFamily: "Space Grotesk, sans-serif", fontSize: "0.85rem", color: "rgba(168,178,196,0.6)" }}>We respond to all inquiries within <span className="hi-green">one business day</span>.</p>
             </div>
           </motion.div>
 

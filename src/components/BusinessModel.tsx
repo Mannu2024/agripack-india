@@ -2,10 +2,10 @@ import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 
 const streams = [
-  { title: "Direct B2B Sales", pct: 60, desc: "Subscription-based supply agreements with food brands, e-commerce companies, and manufacturers.", color: "#00D4FF" },
-  { title: "Custom Branding", pct: 25, desc: "Premium margin on customised packaging with brand logos and design specifications.", color: "#00FF87" },
-  { title: "Carbon Credits", pct: 10, desc: "Certified carbon offset credits sold to corporations for their Scope 3 emissions.", color: "#BF00FF" },
-  { title: "Data & Platform", pct: 5, desc: "SaaS platform fees for supply chain transparency and sustainability reporting tools.", color: "#FFD700" },
+  { title: "Direct B2B Sales", pct: 60, desc: <><span className="hi-cyan">Subscription-based supply agreements</span> with food brands, e-commerce companies, and manufacturers.</>, color: "#00D4FF" },
+  { title: "Custom Branding", pct: 25, desc: <><span className="hi-gold">Premium margin</span> on customised packaging with <span className="hi-white">brand logos</span> and design specifications.</>, color: "#00FF87" },
+  { title: "Carbon Credits", pct: 10, desc: <><span className="hi-green">Certified carbon offset credits</span> sold to corporations for their <span className="hi-cyan">Scope 3 emissions</span>.</>, color: "#BF00FF" },
+  { title: "Data & Platform", pct: 5, desc: <><span className="hi-purple">SaaS platform fees</span> for supply chain transparency and <span className="hi-cyan">sustainability reporting</span> tools.</>, color: "#FFD700" },
 ];
 
 export default function BusinessModel() {

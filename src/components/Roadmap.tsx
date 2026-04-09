@@ -1,12 +1,28 @@
+import React from "react";
 import { motion } from "motion/react";
 import { CheckCircle, Circle, Clock } from "lucide-react";
 
 const milestones = [
-  { phase: "Phase 1", period: "Q1 2025", title: "Seed & Setup", done: true, items: ["Company registration", "IP filing", "2 farmer MoUs signed", "Pilot plant operational"] },
-  { phase: "Phase 2", period: "Q3 2025", title: "Market Validation", done: true, items: ["10 B2B clients acquired", "₹50L revenue achieved", "FSSAI certification", "Series A preparation"] },
-  { phase: "Phase 3", period: "Q1 2026", title: "Scale Production", done: false, active: true, items: ["Series A: ₹12Cr raised", "2nd manufacturing unit", "50 B2B partnerships", "Launch platform v2"] },
-  { phase: "Phase 4", period: "Q3 2026", title: "National Expansion", done: false, items: ["Pan-India distribution", "Carbon credit program live", "4 state operations", "Series B preparation"] },
-  { phase: "Phase 5", period: "2027+", title: "Category Leader", done: false, items: ["₹100Cr ARR", "Export markets entry", "IPO readiness", "500+ B2B clients"] },
+  {
+    phase: "Phase 1", period: "Q1 2025", title: "Seed & Setup", done: true,
+    items: ["Company registration", "IP filing", "2 farmer MoUs signed", <><span className="hi-green">Pilot plant</span> operational</>],
+  },
+  {
+    phase: "Phase 2", period: "Q3 2025", title: "Market Validation", done: true,
+    items: [<><span className="hi-gold">10 B2B clients</span> acquired</>, <><span className="hi-gold">₹50L revenue</span> achieved</>, <><span className="hi-white">FSSAI certification</span></>, <>Series A preparation</>],
+  },
+  {
+    phase: "Phase 3", period: "Q1 2026", title: "Scale Production", done: false, active: true,
+    items: [<>Series A: <span className="hi-cyan">₹12Cr raised</span></>, <>2nd manufacturing unit</>, <><span className="hi-gold">50 B2B partnerships</span></>, <>Launch <span className="hi-cyan">platform v2</span></>],
+  },
+  {
+    phase: "Phase 4", period: "Q3 2026", title: "National Expansion", done: false,
+    items: [<><span className="hi-white">Pan-India</span> distribution</>, <><span className="hi-green">Carbon credit</span> program live</>, <>4 state operations</>, <>Series B preparation</>],
+  },
+  {
+    phase: "Phase 5", period: "2027+", title: "Category Leader", done: false,
+    items: [<><span className="hi-gold">₹100Cr ARR</span></>, <>Export markets entry</>, <><span className="hi-white">IPO readiness</span></>, <><span className="hi-cyan">500+</span> B2B clients</>],
+  },
 ];
 
 export default function Roadmap() {

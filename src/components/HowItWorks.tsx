@@ -2,11 +2,11 @@ import { motion } from "motion/react";
 import { Wheat, Cog, Package, Truck, Recycle } from "lucide-react";
 
 const steps = [
-  { icon: <Wheat className="w-7 h-7" />, title: "Collect", desc: "Farmers hand over agricultural waste (bagasse, straw, husk) for guaranteed payment.", color: "#FFD700" },
-  { icon: <Cog className="w-7 h-7" />, title: "Process", desc: "Our plants pulp, clean, and mold the biomass into packaging blanks using low-energy tech.", color: "#00FF87" },
-  { icon: <Package className="w-7 h-7" />, title: "Produce", desc: "Finished products are quality-checked, branded, and made ready for distribution.", color: "#00D4FF" },
-  { icon: <Truck className="w-7 h-7" />, title: "Distribute", desc: "Same-day dispatch to B2B partners across India through our logistics network.", color: "#BF00FF" },
-  { icon: <Recycle className="w-7 h-7" />, title: "Compost", desc: "Used packaging naturally composts in 60-90 days, closing the circular economy loop.", color: "#FF006E" },
+  { icon: <Wheat className="w-7 h-7" />, title: "Collect", desc: <><span className="hi-gold">Farmers</span> hand over agricultural waste (<span className="hi-green">bagasse, straw, husk</span>) for <span className="hi-white">guaranteed payment</span>.</>, color: "#FFD700" },
+  { icon: <Cog className="w-7 h-7" />, title: "Process", desc: <>Our plants <span className="hi-cyan">pulp, clean, and mold</span> the biomass into packaging blanks using <span className="hi-green">low-energy tech</span>.</>, color: "#00FF87" },
+  { icon: <Package className="w-7 h-7" />, title: "Produce", desc: <>Finished products are <span className="hi-white">quality-checked</span>, <span className="hi-cyan">custom branded</span>, and made ready for distribution.</>, color: "#00D4FF" },
+  { icon: <Truck className="w-7 h-7" />, title: "Distribute", desc: <><span className="hi-green">Same-day dispatch</span> to B2B partners across <span className="hi-gold">Pan-India</span> through our logistics network.</>, color: "#BF00FF" },
+  { icon: <Recycle className="w-7 h-7" />, title: "Compost", desc: <>Used packaging <span className="hi-green">naturally composts</span> in <span className="hi-gold">60–90 days</span>, closing the <span className="hi-cyan">circular economy</span> loop.</>, color: "#FF006E" },
 ];
 
 export default function HowItWorks() {
