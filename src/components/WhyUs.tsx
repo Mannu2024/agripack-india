@@ -1,89 +1,56 @@
 import { motion } from "motion/react";
-import { CheckCircle2, DollarSign, Cpu, Truck, ShieldCheck } from "lucide-react";
+import { Shield, Zap, Globe, Award, Users, TrendingUp } from "lucide-react";
+
+const reasons = [
+  { icon: <Shield className="w-6 h-6" />, title: "IP Protected", desc: <><span className="hi-cyan">Proprietary</span> processing technology with <span className="hi-gold">3 patents</span> filed.</>, color: "#00D4FF" },
+  { icon: <Zap className="w-6 h-6" />, title: "Speed to Market", desc: <><span className="hi-green">72-hour delivery SLA</span> across India. Custom orders in <span className="hi-gold">5 days</span>.</>, color: "#00FF87" },
+  { icon: <Globe className="w-6 h-6" />, title: "Scale Ready", desc: <><span className="hi-purple">4 manufacturing</span> facilities, capacity for <span className="hi-gold">200 tonne/month</span>.</>, color: "#BF00FF" },
+  { icon: <Award className="w-6 h-6" />, title: "Certified Quality", desc: <><span className="hi-white">FDA, FSSAI</span>, and <span className="hi-cyan">ISO 14001</span> certified packaging.</>, color: "#FFD700" },
+  { icon: <Users className="w-6 h-6" />, title: "Farmer Network", desc: <><span className="hi-gold">2,400+</span> farmer partners ensuring <span className="hi-green">raw material security</span>.</>, color: "#FF006E" },
+  { icon: <TrendingUp className="w-6 h-6" />, title: "Unit Economics", desc: <><span className="hi-green">15–30% cheaper</span> than conventional packaging at scale.</>, color: "#00D4FF" },
+];
 
 export default function WhyUs() {
-  const usps = [
-    {
-      icon: <DollarSign className="w-6 h-6" />,
-      title: "Cost Competitive",
-      desc: "Direct farmer sourcing allows us to match plastic pricing while being 100% eco-friendly.",
-    },
-    {
-      icon: <Cpu className="w-6 h-6" />,
-      title: "Tech-Enabled",
-      desc: "Our B2B platform simplifies ordering, tracking, and custom branding for businesses.",
-    },
-    {
-      icon: <ShieldCheck className="w-6 h-6" />,
-      title: "Regulatory Partner",
-      desc: "We help brands stay compliant with evolving plastic bans and environmental laws.",
-    },
-    {
-      icon: <Truck className="w-6 h-6" />,
-      title: "Scalable Supply",
-      desc: "Our decentralized processing model ensures a consistent supply even during peak demand.",
-    },
-  ];
-
   return (
-    <section className="section-padding bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="order-2 lg:order-1"
-          >
-            <div className="relative">
-              <img
-                src="https://picsum.photos/seed/farmer/800/800"
-                alt="Farmer Sourcing"
-                className="rounded-[3rem] shadow-2xl"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute -top-10 -right-10 bg-agri-beige p-8 rounded-3xl shadow-xl border border-agri-green/10 hidden md:block">
-                <p className="text-agri-green font-bold text-4xl mb-1">40%</p>
-                <p className="text-xs font-bold text-agri-earth/60 uppercase tracking-widest">More Income for Farmers</p>
+    <section id="why" className="section-padding relative" style={{ background: "#0D0D15" }}>
+      <div className="absolute inset-0 bg-grid opacity-25" />
+      <div className="absolute top-0 w-full h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,212,255,0.4), rgba(191,0,255,0.4), transparent)" }} />
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
+          <div className="section-label inline-flex mb-6" style={{ color: "#FFD700", borderColor: "rgba(255,215,0,0.3)", background: "rgba(255,215,0,0.05)" }}>
+            ★ Competitive Edge
+          </div>
+          <h2 style={{ fontFamily: "Orbitron, sans-serif", fontWeight: 900, fontSize: "clamp(1.8rem, 4vw, 3rem)", color: "#fff" }}>
+            WHY{" "}
+            <span style={{ background: "linear-gradient(135deg, #FFD700, #00FF87)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+              AGRIPACK
+            </span>
+          </h2>
+          <p className="mt-4 max-w-xl mx-auto lead-text">
+            We're not just a packaging company. We're a <span className="hi-cyan">technology-enabled</span>{" "}
+            <span className="hi-green">circular economy</span> platform.
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {reasons.map((r, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08 }}
+              className="glass rounded-2xl p-6 card-hover group relative overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 w-full h-0.5" style={{ background: `linear-gradient(90deg, transparent, ${r.color}50, transparent)` }} />
+              <div className="mb-4 inline-flex p-3 rounded-xl" style={{ background: `${r.color}12`, color: r.color, border: `1px solid ${r.color}25` }}>
+                {r.icon}
               </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="order-1 lg:order-2"
-          >
-            <h2 className="text-sm font-bold text-agri-green uppercase tracking-widest mb-4">Why AgriPack?</h2>
-            <h3 className="text-4xl md:text-5xl font-display font-bold text-agri-green-dark mb-8">
-              The AgriPack Advantage
-            </h3>
-            <p className="text-agri-earth/70 text-lg mb-12">
-              We aren't just selling products; we're building a sustainable infrastructure for India's future. Our model creates a win-win for farmers, businesses, and the environment.
-            </p>
-
-            <div className="grid sm:grid-cols-2 gap-8">
-              {usps.map((usp, i) => (
-                <div key={i} className="group">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 bg-agri-green/10 text-agri-green rounded-lg group-hover:bg-agri-green group-hover:text-white transition-colors">
-                      {usp.icon}
-                    </div>
-                    <h4 className="text-lg font-bold text-agri-green-dark">{usp.title}</h4>
-                  </div>
-                  <p className="text-agri-earth/60 text-sm leading-relaxed">{usp.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-12 p-6 bg-agri-beige/30 rounded-2xl border border-agri-green/10 flex items-start gap-4">
-              <CheckCircle2 className="w-6 h-6 text-agri-green flex-shrink-0" />
-              <p className="text-sm font-medium text-agri-green-dark">
-                "AgriPack has reduced our packaging costs by 15% while helping us meet our sustainability goals." — <span className="italic">Ludhiana Cloud Kitchen Owner</span>
-              </p>
-            </div>
-          </motion.div>
+              <h3 className="mb-2" style={{ fontFamily: "Space Grotesk, sans-serif", fontWeight: 700, fontSize: "1rem", color: "#fff" }}>{r.title}</h3>
+              <p style={{ fontFamily: "Space Grotesk, sans-serif", fontSize: "0.85rem", color: "rgba(168,178,196,0.7)", lineHeight: 1.6 }}>{r.desc}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

@@ -1,15 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap');
 @import "tailwindcss";
 
+/* ─── Futuristic Design System ─── */
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Poppins", sans-serif;
-  
-  --color-agri-green: #2E7D32;
-  --color-agri-green-dark: #1B5E20;
-  --color-agri-beige: #F5F5F0;
-  --color-agri-olive: #5A5A40;
-  --color-agri-earth: #4E342E;
+  --font-sans: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Orbitron", sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Core Dark Palette */
+  --color-void: #0A0A0F;
+  --color-void-2: #0D0D15;
+  --color-void-3: #12121E;
+  --color-surface: #161622;
+  --color-surface-2: #1E1E2E;
+  --color-surface-3: #252535;
+
+  /* Neon Accent Colors */
+  --color-neon-cyan: #00D4FF;
+  --color-neon-green: #00FF87;
+  --color-neon-purple: #BF00FF;
+  --color-neon-gold: #FFD700;
+  --color-neon-pink: #FF006E;
+
+  /* Muted/Secondary */
+  --color-steel: #8892A4;
+  --color-steel-light: #A8B2C4;
+  --color-border: rgba(255,255,255,0.08);
+  --color-border-glow: rgba(0, 212, 255, 0.3);
+
+  /* Legacy aliases for compatibility */
+  --color-agri-green: #00FF87;
+  --color-agri-green-dark: #00CC6A;
+  --color-agri-beige: #0D0D15;
+  --color-agri-olive: #8892A4;
+  --color-agri-earth: #A8B2C4;
 }
 
 @layer base {
@@ -17,17 +40,563 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply font-sans text-agri-earth bg-white;
+    @apply font-sans bg-void text-steel-light;
+    background-color: #0A0A0F;
+    color: #A8B2C4;
   }
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-display;
+  h1, h2, h3 {
+    font-family: "Orbitron", sans-serif;
+  }
+  h4, h5, h6 {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+  }
+  ::selection {
+    background: rgba(0, 212, 255, 0.3);
+    color: #00D4FF;
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0A0A0F;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 212, 255, 0.3);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 212, 255, 0.6);
   }
 }
 
-.glass-card {
-  @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-sm;
+/* ─── Grid Background ─── */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
 }
 
+/* ─── Glassmorphism ─── */
+.glass {
+  background: rgba(22, 22, 34, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.glass-cyan {
+  background: rgba(0, 212, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+}
+.glass-green {
+  background: rgba(0, 255, 135, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 255, 135, 0.2);
+}
+
+/* ─── Neon Glow Effects ─── */
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.4), 0 0 40px rgba(0, 212, 255, 0.2);
+}
+.glow-green {
+  box-shadow: 0 0 20px rgba(0, 255, 135, 0.4), 0 0 40px rgba(0, 255, 135, 0.2);
+}
+.glow-purple {
+  box-shadow: 0 0 20px rgba(191, 0, 255, 0.4), 0 0 40px rgba(191, 0, 255, 0.2);
+}
+.text-glow-cyan {
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.8), 0 0 40px rgba(0, 212, 255, 0.4);
+}
+.text-glow-green {
+  text-shadow: 0 0 20px rgba(0, 255, 135, 0.8), 0 0 40px rgba(0, 255, 135, 0.4);
+}
+
+/* ─── Neon Border Animation ─── */
+.neon-border {
+  position: relative;
+}
+.neon-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #00D4FF, #00FF87, #BF00FF);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.neon-border:hover::before {
+  opacity: 1;
+}
+
+/* ─── Button Styles ─── */
+.btn-neon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #00D4FF;
+  border: 1px solid rgba(0, 212, 255, 0.5);
+  background: rgba(0, 212, 255, 0.05);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  overflow: hidden;
+}
+.btn-neon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.btn-neon:hover {
+  color: #fff;
+  border-color: #00D4FF;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.5), inset 0 0 20px rgba(0, 212, 255, 0.1);
+  transform: translateY(-1px);
+}
+.btn-neon:hover::before {
+  opacity: 1;
+}
+
+.btn-neon-green {
+  color: #00FF87;
+  border-color: rgba(0, 255, 135, 0.5);
+  background: rgba(0, 255, 135, 0.05);
+}
+.btn-neon-green:hover {
+  color: #fff;
+  border-color: #00FF87;
+  box-shadow: 0 0 20px rgba(0, 255, 135, 0.5), inset 0 0 20px rgba(0, 255, 135, 0.1);
+}
+
+.btn-solid {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2.5rem;
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #0A0A0F;
+  background: linear-gradient(135deg, #00D4FF, #00FF87);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  overflow: hidden;
+}
+.btn-solid:hover {
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.6), 0 0 60px rgba(0, 255, 135, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ─── Section Layout ─── */
 .section-padding {
-  @apply py-20 px-6 md:px-12 lg:px-24;
+  padding: 6rem 1.5rem;
+}
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 7rem 3rem;
+  }
+}
+@media (min-width: 1024px) {
+  .section-padding {
+    padding: 8rem 6rem;
+  }
+}
+
+/* ─── Gradient Text ─── */
+.gradient-text-cyan {
+  background: linear-gradient(135deg, #00D4FF, #00FF87);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gradient-text-purple {
+  background: linear-gradient(135deg, #BF00FF, #00D4FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gradient-text-warm {
+  background: linear-gradient(135deg, #FFD700, #FF006E);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Keyframe Animations ─── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; box-shadow: 0 0 20px currentColor; }
+  50% { opacity: 1; box-shadow: 0 0 40px currentColor, 0 0 80px currentColor; }
+}
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+@keyframes grid-move {
+  0% { background-position: 0 0; }
+  100% { background-position: 60px 60px; }
+}
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes counter-up {
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes border-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes particle-drift {
+  0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-10vh) translateX(50px); opacity: 0; }
+}
+
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-float-delayed { animation: float 6s ease-in-out infinite 2s; }
+.animate-float-slow { animation: float 8s ease-in-out infinite 1s; }
+.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+.animate-spin-slow { animation: spin-slow 20s linear infinite; }
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(0,212,255,0.2), transparent);
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ─── Particle Container ─── */
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #00D4FF;
+  animation: particle-drift linear infinite;
+}
+
+/* ─── Scan Line Effect ─── */
+.scan-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 50%, rgba(0,212,255,0.03) 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+}
+
+/* ─── Card Hover Effects ─── */
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* ─── Corner Accents ─── */
+.corner-accent {
+  position: relative;
+}
+.corner-accent::before,
+.corner-accent::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: #00D4FF;
+  border-style: solid;
+  opacity: 0.6;
+}
+.corner-accent::before {
+  top: 8px;
+  left: 8px;
+  border-width: 2px 0 0 2px;
+}
+.corner-accent::after {
+  bottom: 8px;
+  right: 8px;
+  border-width: 0 2px 2px 0;
+}
+
+/* ─── Section Label ─── */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #00D4FF;
+  padding: 0.35rem 1rem;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  background: rgba(0, 212, 255, 0.05);
+  border-radius: 2px;
+  margin-bottom: 1.5rem;
+}
+
+/* ─── Divider ─── */
+.neon-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,212,255,0.5), rgba(0,255,135,0.5), transparent);
+}
+
+/* ─── Stats Ticker ─── */
+.stat-number {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  background: linear-gradient(135deg, #00D4FF, #00FF87);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+/* ─── Tag Pill ─── */
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  color: #00D4FF;
+}
+
+/* ─── Inline Text Accents ─────────────────────────────────────────────────────
+   Use these inside paragraphs and descriptions to highlight important words,
+   numbers, or actions so readers' eyes snap to what matters instantly.
+──────────────────────────────────────────────────────────────────────────── */
+
+/* Cyan accent – tech, platform, B2B terms */
+.hi-cyan {
+  color: #00D4FF;
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(0, 212, 255, 0.45);
+}
+
+/* Green accent – eco, sustainability, positive outcomes */
+.hi-green {
+  color: #00FF87;
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(0, 255, 135, 0.45);
+}
+
+/* Gold accent – numbers, percentages, financial figures */
+.hi-gold {
+  color: #FFD700;
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+}
+
+/* Pink accent – warnings, urgency, deadlines */
+.hi-pink {
+  color: #FF006E;
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(255, 0, 110, 0.4);
+}
+
+/* Purple accent – innovation, technology labels */
+.hi-purple {
+  color: #BF00FF;
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(191, 0, 255, 0.4);
+}
+
+/* White strong – neutral emphasis, key nouns */
+.hi-white {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* ─── Inline background highlight (like a highlighter pen) ─── */
+.hi-tag {
+  display: inline;
+  padding: 0.05em 0.4em;
+  border-radius: 3px;
+  font-weight: 700;
+  background: rgba(0, 212, 255, 0.12);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  color: #00D4FF;
+  font-size: 0.95em;
+}
+.hi-tag-green {
+  background: rgba(0, 255, 135, 0.12);
+  border: 1px solid rgba(0, 255, 135, 0.25);
+  color: #00FF87;
+}
+.hi-tag-gold {
+  background: rgba(255, 215, 0, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  color: #FFD700;
+}
+.hi-tag-pink {
+  background: rgba(255, 0, 110, 0.1);
+  border: 1px solid rgba(255, 0, 110, 0.25);
+  color: #FF006E;
+}
+
+/* ─── Shimmer heading effect ─── */
+@keyframes text-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+.heading-shimmer {
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #ffffff 35%,
+    #00D4FF 50%,
+    #00FF87 60%,
+    #ffffff 75%,
+    #ffffff 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: text-shimmer 6s linear infinite;
+}
+
+/* ─── Typewriter cursor ─── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.cursor-blink::after {
+  content: '|';
+  display: inline-block;
+  margin-left: 2px;
+  color: #00FF87;
+  animation: blink 1s step-end infinite;
+}
+
+/* ─── Word-level reveal ─── */
+@keyframes word-up {
+  from { opacity: 0; transform: translateY(14px); filter: blur(4px); }
+  to   { opacity: 1; transform: translateY(0);    filter: blur(0);   }
+}
+.word-reveal {
+  display: inline-block;
+  animation: word-up 0.5s ease forwards;
+  opacity: 0;
+}
+
+/* ─── Pulsing CTA indicator dot ─── */
+@keyframes cta-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 255, 135, 0.6); }
+  50%       { box-shadow: 0 0 0 8px rgba(0, 255, 135, 0);  }
+}
+.btn-pulse::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #00FF87;
+  animation: cta-pulse 2s ease-in-out infinite;
+}
+.btn-solid.btn-pulse,
+.btn-neon.btn-pulse {
+  overflow: visible;
+}
+
+/* ─── Action link underline ─── */
+.action-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  color: #00D4FF;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+  padding-bottom: 1px;
+  transition: color 0.2s, border-color 0.2s, text-shadow 0.2s;
+}
+.action-link:hover {
+  color: #ffffff;
+  border-color: #00D4FF;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.6);
+}
+
+/* ─── Section sub-headline (lead text) ─── */
+.lead-text {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  line-height: 1.75;
+  color: rgba(168, 178, 196, 0.82);
+  letter-spacing: 0.01em;
+}
+
+/* ─── Checklist item text with emphasis ─── */
+.check-label-strong {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+}
+.check-label {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.875rem;
+  color: rgba(168, 178, 196, 0.8);
+}
+
+/* ─── Number / stat emphasis ─── */
+.inline-stat {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 800;
+  font-size: 1em;
+  letter-spacing: 0.04em;
+}
+
+/* ─── Hover-glow on section headings ─── */
+.h2-hover {
+  transition: text-shadow 0.3s;
+}
+.h2-hover:hover {
+  text-shadow: 0 0 30px rgba(0, 212, 255, 0.25);
 }
