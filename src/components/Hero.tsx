@@ -83,7 +83,7 @@ function ParticleCanvas() {
 const stats = [
   { value: "100%", label: "Biodegradable" },
   { value: "50+", label: "B2B Partners" },
-  { value: "\u20b90", label: "Plastic Used" },
+  { value: "\u20b90", label: "Plastic Content" },
   { value: "3x", label: "Cost Savings" },
 ];
 
