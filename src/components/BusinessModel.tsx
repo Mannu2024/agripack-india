@@ -1,89 +1,83 @@
 import { motion } from "motion/react";
-import { ShoppingCart, RefreshCw, Palette, Coins } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+
+const streams = [
+  { title: "Direct B2B Sales", pct: 60, desc: "Subscription-based supply agreements with food brands, e-commerce companies, and manufacturers.", color: "#00D4FF" },
+  { title: "Custom Branding", pct: 25, desc: "Premium margin on customised packaging with brand logos and design specifications.", color: "#00FF87" },
+  { title: "Carbon Credits", pct: 10, desc: "Certified carbon offset credits sold to corporations for their Scope 3 emissions.", color: "#BF00FF" },
+  { title: "Data & Platform", pct: 5, desc: "SaaS platform fees for supply chain transparency and sustainability reporting tools.", color: "#FFD700" },
+];
 
 export default function BusinessModel() {
-  const models = [
-    {
-      icon: <ShoppingCart className="w-6 h-6" />,
-      title: "B2B Bulk Sales",
-      desc: "Direct sales to restaurants, hotels, and FMCG brands at scale.",
-    },
-    {
-      icon: <RefreshCw className="w-6 h-6" />,
-      title: "Subscription Model",
-      desc: "Recurring monthly supply for cloud kitchens and QSR chains.",
-    },
-    {
-      icon: <Palette className="w-6 h-6" />,
-      title: "Custom Branding",
-      desc: "Premium white-labeling services for e-commerce and luxury brands.",
-    },
-    {
-      icon: <Coins className="w-6 h-6" />,
-      title: "Carbon Credits",
-      desc: "Future revenue stream through verified carbon emission avoidance.",
-    },
-  ];
-
   return (
-    <section className="section-padding bg-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-sm font-bold text-agri-green uppercase tracking-widest mb-4">Revenue Streams</h2>
-            <h3 className="text-4xl md:text-5xl font-display font-bold text-agri-green-dark mb-8">
-              A Sustainable & <br /> Scalable Business Model
-            </h3>
-            <p className="text-agri-earth/70 text-lg mb-12">
-              Our diversified revenue model ensures stability and long-term growth. We cater to both high-volume utility needs and premium custom requirements.
-            </p>
-            <div className="grid sm:grid-cols-2 gap-6">
-              {models.map((m, i) => (
-                <div key={i} className="p-6 rounded-2xl bg-agri-beige/20 border border-agri-green/5 hover:border-agri-green/20 transition-all">
-                  <div className="text-agri-green mb-4">{m.icon}</div>
-                  <h4 className="text-lg font-bold text-agri-green-dark mb-2">{m.title}</h4>
-                  <p className="text-sm text-agri-earth/60">{m.desc}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+    <section id="business" className="section-padding relative" style={{ background: "#0A0A0F" }}>
+      <div className="absolute inset-0 bg-grid opacity-20" />
+      <div className="absolute top-0 w-full h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,212,255,0.5), transparent)" }} />
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="relative"
-          >
-            <div className="bg-agri-green-dark p-12 rounded-[3rem] text-white">
-              <h4 className="text-2xl font-display font-bold mb-8">Unit Economics</h4>
-              <div className="space-y-6">
-                <div className="flex justify-between items-end border-bottom border-white/10 pb-4">
-                  <p className="text-white/60">Raw Material Cost</p>
-                  <p className="font-bold text-xl">Low (Waste)</p>
-                </div>
-                <div className="flex justify-between items-end border-bottom border-white/10 pb-4">
-                  <p className="text-white/60">Processing Efficiency</p>
-                  <p className="font-bold text-xl">High (Micro-units)</p>
-                </div>
-                <div className="flex justify-between items-end border-bottom border-white/10 pb-4">
-                  <p className="text-white/60">Market Demand</p>
-                  <p className="font-bold text-xl">Exponential</p>
-                </div>
-                <div className="flex justify-between items-end border-bottom border-white/10 pb-4">
-                  <p className="text-white/60">Gross Margin</p>
-                  <p className="font-bold text-xl text-agri-green">35% - 45%</p>
-                </div>
+      <div className="max-w-7xl mx-auto relative z-10">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
+          <div className="section-label inline-flex mb-6">
+            ◈ Business Model
+          </div>
+          <h2 style={{ fontFamily: "Orbitron, sans-serif", fontWeight: 900, fontSize: "clamp(1.8rem, 4vw, 3rem)", color: "#fff" }}>
+            REVENUE{" "}
+            <span style={{ background: "linear-gradient(135deg, #00D4FF, #BF00FF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+              STREAMS
+            </span>
+          </h2>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-6">
+          {streams.map((s, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="glass rounded-2xl p-6 relative overflow-hidden group card-hover"
+            >
+              <div className="absolute top-0 left-0 w-full h-0.5" style={{ background: `linear-gradient(90deg, transparent, ${s.color}60, transparent)` }} />
+              <div className="flex justify-between items-start mb-4">
+                <h3 style={{ fontFamily: "Space Grotesk, sans-serif", fontWeight: 700, fontSize: "1.05rem", color: "#fff" }}>{s.title}</h3>
+                <span style={{ fontFamily: "Orbitron, sans-serif", fontWeight: 900, fontSize: "1.8rem", color: s.color, lineHeight: 1 }}>{s.pct}%</span>
               </div>
-              <div className="mt-10 p-6 bg-white/5 rounded-2xl border border-white/10">
-                <p className="text-sm italic text-white/60">"Our model is designed for rapid scaling across agricultural belts in India."</p>
+              <p className="mb-5" style={{ fontFamily: "Space Grotesk, sans-serif", fontSize: "0.875rem", color: "rgba(168,178,196,0.7)", lineHeight: 1.6 }}>{s.desc}</p>
+              <div className="h-2 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.05)" }}>
+                <motion.div
+                  initial={{ width: 0 }}
+                  whileInView={{ width: `${s.pct}%` }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1.2, delay: i * 0.1 + 0.3 }}
+                  className="h-full rounded-full"
+                  style={{ background: `linear-gradient(90deg, ${s.color}60, ${s.color})`, boxShadow: `0 0 8px ${s.color}50` }}
+                />
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-12 glass rounded-2xl p-8 relative overflow-hidden"
+          style={{ border: "1px solid rgba(0,212,255,0.2)" }}
+        >
+          <div className="absolute top-0 left-0 w-full h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,212,255,0.6), rgba(0,255,135,0.6), transparent)" }} />
+          <div className="grid md:grid-cols-3 gap-8 text-center">
+            {[
+              { label: "Gross Margin", value: "42%", color: "#00D4FF" },
+              { label: "Break-even", value: "18 Mo", color: "#00FF87" },
+              { label: "5-Yr Projection", value: "₹180Cr", color: "#BF00FF" },
+            ].map((item, i) => (
+              <div key={i}>
+                <p style={{ fontFamily: "Orbitron, sans-serif", fontWeight: 900, fontSize: "2.2rem", color: item.color, textShadow: `0 0 20px ${item.color}40` }}>{item.value}</p>
+                <p className="mt-1" style={{ fontFamily: "Orbitron, sans-serif", fontSize: "0.65rem", color: "rgba(168,178,196,0.6)", letterSpacing: "0.15em", textTransform: "uppercase" }}>{item.label}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

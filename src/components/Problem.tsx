@@ -1,41 +1,69 @@
 import { motion } from "motion/react";
-import { AlertCircle, CloudRain, Ban, TrendingDown } from "lucide-react";
+import { AlertTriangle, Leaf, TrendingDown, Globe } from "lucide-react";
+
+const problems = [
+  {
+    icon: <AlertTriangle className="w-6 h-6" />,
+    title: "Plastic Pollution Crisis",
+    desc: "India generates 3.5 million tonnes of plastic waste annually, with packaging being the #1 contributor to environmental pollution.",
+    color: "#FF006E",
+    stat: "3.5M",
+    statLabel: "Tonnes/Year",
+  },
+  {
+    icon: <TrendingDown className="w-6 h-6" />,
+    title: "Farmer Income Gap",
+    desc: "Agricultural residue worth ₹4,000 Cr is burned annually in Punjab alone, causing massive air pollution and wasted revenue for farmers.",
+    color: "#FFD700",
+    stat: "₹4000Cr",
+    statLabel: "Wasted/Year",
+  },
+  {
+    icon: <Globe className="w-6 h-6" />,
+    title: "Sustainability Demand",
+    desc: "82% of consumers prefer eco-friendly packaging, yet only 12% of Indian businesses offer sustainable alternatives at scale.",
+    color: "#BF00FF",
+    stat: "82%",
+    statLabel: "Demand Unmet",
+  },
+  {
+    icon: <Leaf className="w-6 h-6" />,
+    title: "Regulatory Pressure",
+    desc: "India's single-use plastic ban and Extended Producer Responsibility (EPR) norms are pushing brands to find sustainable alternatives urgently.",
+    color: "#00D4FF",
+    stat: "2026",
+    statLabel: "EPR Deadline",
+  },
+];
 
 export default function Problem() {
-  const problems = [
-    {
-      icon: <CloudRain className="w-8 h-8 text-red-500" />,
-      title: "500M+ Tonnes Burned",
-      desc: "Agricultural waste is burned annually, releasing massive CO2 and toxic pollutants.",
-    },
-    {
-      icon: <AlertCircle className="w-8 h-8 text-red-500" />,
-      title: "Air Pollution Crisis",
-      desc: "North India faces severe AQI drops every winter due to stubble burning.",
-    },
-    {
-      icon: <Ban className="w-8 h-8 text-red-500" />,
-      title: "Plastic Ban Struggles",
-      desc: "Businesses face bans on single-use plastic but lack affordable, scalable alternatives.",
-    },
-    {
-      icon: <TrendingDown className="w-8 h-8 text-red-500" />,
-      title: "Economic Loss",
-      desc: "Farmers earn zero revenue from waste, missing out on potential income streams.",
-    },
-  ];
-
   return (
-    <section id="problem" className="section-padding bg-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-sm font-bold text-red-500 uppercase tracking-widest mb-4">The Crisis</h2>
-          <h3 className="text-4xl md:text-5xl font-display font-bold text-agri-green-dark">
-            Why Sustainable Packaging <br className="hidden md:block" /> is No Longer Optional
-          </h3>
-        </div>
+    <section id="problem" className="section-padding relative" style={{ background: "#0D0D15" }}>
+      <div className="absolute inset-0 bg-grid opacity-40" />
+      <div className="absolute top-0 left-0 w-full h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(255,0,110,0.4), rgba(255,215,0,0.4), transparent)" }} />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <div className="section-label inline-flex mb-6" style={{ color: "#FF006E", borderColor: "rgba(255,0,110,0.3)", background: "rgba(255,0,110,0.05)" }}>
+            ⚠ The Problem
+          </div>
+          <h2 style={{ fontFamily: "Orbitron, sans-serif", fontWeight: 900, fontSize: "clamp(1.8rem, 4vw, 3rem)", color: "#fff", lineHeight: 1.15 }}>
+            A CRISIS DEMANDING{" "}
+            <span style={{ background: "linear-gradient(135deg, #FF006E, #FFD700)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+              URGENT ACTION
+            </span>
+          </h2>
+          <p className="mt-4 max-w-2xl mx-auto" style={{ fontFamily: "Space Grotesk, sans-serif", fontSize: "1.05rem", color: "rgba(168,178,196,0.7)", lineHeight: 1.7 }}>
+            The Indian packaging industry sits at the intersection of environmental collapse and economic opportunity. Here's what we're solving.
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-6">
           {problems.map((p, i) => (
             <motion.div
               key={i}
@@ -43,13 +71,27 @@ export default function Problem() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="p-8 rounded-3xl bg-agri-beige/20 border border-agri-green/5 hover:border-red-200 transition-all group"
+              className="glass rounded-2xl p-8 card-hover group relative overflow-hidden"
+              style={{ borderColor: `${p.color}20` }}
             >
-              <div className="mb-6 p-4 bg-white rounded-2xl w-fit shadow-sm group-hover:scale-110 transition-transform">
-                {p.icon}
+              <div className="absolute top-0 left-0 w-full h-0.5" style={{ background: `linear-gradient(90deg, transparent, ${p.color}60, transparent)` }} />
+              <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-5 group-hover:opacity-10 transition-opacity" style={{ background: `radial-gradient(circle, ${p.color}, transparent)` }} />
+
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-xl flex-shrink-0" style={{ background: `${p.color}15`, color: p.color, border: `1px solid ${p.color}30` }}>
+                  {p.icon}
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 style={{ fontFamily: "Space Grotesk, sans-serif", fontWeight: 700, fontSize: "1.1rem", color: "#fff" }}>{p.title}</h3>
+                    <div className="text-right">
+                      <p style={{ fontFamily: "Orbitron, sans-serif", fontWeight: 900, fontSize: "1.3rem", color: p.color }}>{p.stat}</p>
+                      <p style={{ fontFamily: "Orbitron, sans-serif", fontSize: "0.55rem", color: "rgba(168,178,196,0.5)", letterSpacing: "0.1em", textTransform: "uppercase" }}>{p.statLabel}</p>
+                    </div>
+                  </div>
+                  <p style={{ fontFamily: "Space Grotesk, sans-serif", fontSize: "0.9rem", color: "rgba(168,178,196,0.7)", lineHeight: 1.7 }}>{p.desc}</p>
+                </div>
               </div>
-              <h4 className="text-xl font-bold text-agri-green-dark mb-3">{p.title}</h4>
-              <p className="text-agri-earth/70 leading-relaxed">{p.desc}</p>
             </motion.div>
           ))}
         </div>
