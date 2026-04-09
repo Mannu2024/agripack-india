@@ -1,4 +1,3 @@
-import React from "react";
 import { motion, useInView } from "motion/react";
 import { useRef, useEffect, useState } from "react";
 

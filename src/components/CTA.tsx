@@ -52,8 +52,8 @@ export default function CTA() {
             </div>
 
             <p className="mt-8" style={{ fontFamily: "Space Grotesk, sans-serif", fontSize: "0.8rem", color: "rgba(168,178,196,0.4)" }}>
-              <span className="hi-green" style={{ fontSize: "inherit" }}>✓</span> No commitment required{" "}
-              · <span className="hi-cyan" style={{ fontSize: "inherit" }}>⚡</span> Setup in 48 hours{" "}
+              <span className="hi-green" style={{ fontSize: "inherit" }} aria-hidden="true">✓</span> No commitment required{" "}
+              · <span className="hi-cyan" style={{ fontSize: "inherit" }} aria-hidden="true">⚡</span> Setup in 48 hours{" "}
               · Cancel anytime
             </p>
           </div>
